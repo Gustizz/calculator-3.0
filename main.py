@@ -32,18 +32,28 @@ def revElements(list, index):
 equation = input("Enter your equation: ")
 equation = equation.replace(" ", "")
 
+equation = equation.replace("*", " * ")
+equation = equation.replace("/", " / ")
+equation = equation.replace("+", " + ")
+equation = equation.replace("-", " - ")
+
+
+
 sortedEq = []
-ops = ["+", "-"]
+basicOps = ["+", "-"]
 
-for x in equation:
-  sortedEq.append(x)
-
-
+sortedEq = equation.split()
+print(sortedEq)
 #10*2
 #[0, + ,1, 0, *, 2]
 #[0, +, "10", *, 2]
 
-
+#10 + 2 *3
+#10+2*3
+#10 + 2 * 3
+# 10*2  replace("*", " * ")
+# 10 * 2
+# ["10", "*", "2"]
 
 #Execute mult and div
 i = 0
@@ -69,7 +79,7 @@ while len(sortedEq) > i:
 #Simplyfy add and sub operators - (+- = -, -- = +)
 i = 0
 while len(sortedEq) > i:
-  if ((sortedEq[i] in ops) and (sortedEq[i + 1] in ops)):
+  if ((sortedEq[i] in basicOps) and (sortedEq[i + 1] in basicOps)):
     curOp = sortedEq[i]
     nextOp = sortedEq[i + 1]
 
@@ -78,13 +88,13 @@ while len(sortedEq) > i:
       sortedEq.pop(i + 1)
     else:
       sortedEq[i] = "-"
-      sortedEq.pop(i+1)
+      sortedEq.pop(i + 1)
 
     i = 0
     print(sortedEq)
   else:
     i += 1
-    
+
 #Execute add and sub
 i = 0
 while len(sortedEq) > i:
