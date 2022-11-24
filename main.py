@@ -28,8 +28,8 @@ def revElements(list, index):
   list.pop(i)
   list.pop(i - 1)
 
-
-equation = input("Enter your equation: ")
+equation = "0+"
+equation += input("Enter your equation: ")
 equation = equation.replace(" ", "")
 
 equation = equation.replace("*", " * ")
@@ -44,16 +44,6 @@ basicOps = ["+", "-"]
 
 sortedEq = equation.split()
 print(sortedEq)
-#10*2
-#[0, + ,1, 0, *, 2]
-#[0, +, "10", *, 2]
-
-#10 + 2 *3
-#10+2*3
-#10 + 2 * 3
-# 10*2  replace("*", " * ")
-# 10 * 2
-# ["10", "*", "2"]
 
 #Execute mult and div
 i = 0
